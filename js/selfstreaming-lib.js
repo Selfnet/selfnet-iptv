@@ -1,3 +1,5 @@
+var STREAMING_SERVER_IP = 'http://ucast-stream.server.selfnet.de'
+
 function get_url(session, somecast, absolute) {
     return somecast == 'unicast' ? get_http_url(session, absolute) : get_rtp_url(session);
 }
@@ -10,6 +12,10 @@ function get_http_url(session, absolute) {
     var url = '/proxy/' + session.ip + ':' + session.port + '/' + encodeURIComponent(session.name) + '.ts';
     if (absolute == 'absolute') {
         url = location.origin + url;
+    }
+    else
+    {
+        url = STREAMING_SERVER_IP + url;
     }
     return url;
 }
