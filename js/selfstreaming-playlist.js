@@ -27,7 +27,7 @@ $(function() {
         data += '<trackList>\n';
         for (var i in sessions) {
             var session = sessions[i];
-            data += '<track><title>' + session.name + '</title>';
+            data += '<track><title>' + encodeURIComponent(session.name) + '</title>';
             data += '<location>' + get_url(session, delivery_method, 'absolute') + '</location></track>\n';
         }
         data += '</trackList></playlist>';
